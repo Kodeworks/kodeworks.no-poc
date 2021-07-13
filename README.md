@@ -1,3 +1,20 @@
+# Getting started
+
+`yarn` to install dependencies  
+`yarn dev` to start development
+
+## VSCode setup
+
+- Rename `.vscode/recommended.settings.json` to `.vscode/settings.json` to enable recommended VSCode settings
+- Recommended plugins [Todo]
+
+# Tech stack
+
+- React
+- NextJS
+- TailwindCSS
+- Storybook
+
 ## Storybook
 
 > 💡 Helps us document components for reuse and automatically visually test our components to prevent bugs.
