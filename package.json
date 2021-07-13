@@ -6,6 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "format": "prettier \"**/*.+(js|json|less|css|html|ts|tsx|md)\" --write",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
