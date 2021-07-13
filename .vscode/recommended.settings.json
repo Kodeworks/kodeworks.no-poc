@@ -1,0 +1,28 @@
+{
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "editor.detectIndentation": true,
+  "editor.rulers": [160],
+  "editor.acceptSuggestionOnCommitCharacter": false,
+  "files.trimTrailingWhitespace": true,
+  "[markdown]": {
+    "files.trimTrailingWhitespace": false
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.suggestSelection": "recentlyUsed",
+    "editor.suggest.showKeywords": false
+  },
+  "editor.renderWhitespace": "boundary",
+  "files.exclude": {
+    "USE_GITIGNORE": true
+  },
+  "javascript.validate.enable": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": false
+  },
+  "explorer.confirmDragAndDrop": false,
+  "editor.formatOnPaste": false,
+  "editor.cursorSmoothCaretAnimation": true,
+  "editor.smoothScrolling": true
+}
