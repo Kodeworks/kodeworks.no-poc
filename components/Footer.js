@@ -13,7 +13,7 @@ const Footer = ({children}) => {
           <a href="mailto:post@kodeworks.no">post@kodeworks.no</a>
         </div>
       </address>
-      <img src="/kodeworks.svg" alt="Kodeworks Logo" className="h-4 ml-5" />
+      <img src="/logo.svg" alt="Kodeworks Logo" className="h-4 ml-5" />
       {children}
     </footer>
   )
