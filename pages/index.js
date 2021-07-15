@@ -1,9 +1,11 @@
 import Head from 'next/head'
 import Layout from '../components/Layout'
+import Seismograph from '../components/Seismograph'
 
 export default function Home() {
   return (
     <Layout>
+      <Seismograph></Seismograph>
 
       <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
         <h1 className="text-6xl font-bold">
