@@ -1,7 +1,7 @@
 import Head from 'next/head'
-import Layout from '../components/Layout'
-import Seismograph from '../components/Seismograph'
-import Logo from '../components/Logo'
+import Layout from '../components/templates/Layout'
+import Seismograph from '../components/molecules/Seismograph'
+import Logo from '../components/atoms/Logo'
 
 export default function Home() {
   return (

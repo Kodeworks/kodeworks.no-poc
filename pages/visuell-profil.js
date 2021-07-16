@@ -1,8 +1,8 @@
 import Head from 'next/head'
-import Layout from '../components/Layout'
-import TailwindPalette from '../components/TailwindPalette'
+import Layout from '../components/templates/Layout'
+import TailwindPalette from '../components/molecules/TailwindPalette'
 import useScrollBasedOpacity from '../hooks/useScrollBasedOpacity'
-import Logo from '../components/Logo'
+import Logo from '../components/atoms/Logo'
 
 export default function VisualProfile() {
   const backgroundOpacity = useScrollBasedOpacity({
