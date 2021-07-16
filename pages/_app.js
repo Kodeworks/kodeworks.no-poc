@@ -36,7 +36,7 @@ function MyApp({Component, pageProps}) {
           href="/fonts/non-natural-grotesk-regular.woff2"
           as="font"
           type="font/woff2"
-          crossorigin="anonymous"
+          crossOrigin="anonymous"
         />
       </Head>
       <Component {...pageProps} />
