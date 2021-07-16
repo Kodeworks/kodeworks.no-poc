@@ -15,6 +15,10 @@
 - TailwindCSS
 - Storybook
 
+## Dependencies
+
+- https://github.com/n8tb1t/use-scroll-position
+
 ## Storybook
 
 > 💡 Helps us document components for reuse and automatically visually test our components to prevent bugs.
