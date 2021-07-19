@@ -27,13 +27,13 @@ export default function VisualProfile() {
         <TailwindPalette tailwindColor="kw-green-4" />
         <TailwindPalette tailwindColor="kw-green-5" />
         <TailwindPalette tailwindColor="kw-red" />
-        <TailwindPalette tailwindColor="kw-gray" />
+        <TailwindPalette tailwindColor="main-gray" />
         <h3>Fargekombinasjoner</h3>
         <p>Ikke alle fargekombinasjoner oppfyller krav til kontrast</p>
         <div className="grid grid-cols-3 gap-4">
           <div className="flex rounded ring-1 ring-black ring-opacity-50">
             <div className="w-1/2 h-24 rounded-l bg-kw-green-500"></div>
-            <div className="w-1/2 h-24 rounded-r bg-kw-gray-500"></div>
+            <div className="w-1/2 h-24 rounded-r bg-main-gray-500"></div>
           </div>
           <div className="flex rounded ring-1 ring-black ring-opacity-50">
             <div className="w-1/2 h-24 rounded-l bg-kw-green-500"></div>
