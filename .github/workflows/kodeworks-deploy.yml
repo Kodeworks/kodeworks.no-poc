@@ -25,11 +25,15 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'yarn'
-      - run: yarn run install --frozen-lockfile
+      - run: yarn install --frozen-lockfile
       - run: yarn run build
       - run: yarn run export
       - run: touch ./out/.nojekyll # Github Pages uses jekyll which doesn't serve the _next-folder
 
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.4
         with:
