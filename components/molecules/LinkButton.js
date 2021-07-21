@@ -10,7 +10,7 @@ const VARIANT_MAPS = {
 
 const LinkButton = ({variant = Variant.MAIN_GRAY, url = '#', linkText}) => {
   return (
-    <div className="inline shadow-2xl">
+    <div className="inline-flex shadow">
       <Link href={url}>
         <a
           className={classNames(
