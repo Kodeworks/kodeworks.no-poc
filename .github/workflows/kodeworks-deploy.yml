@@ -28,9 +28,11 @@ jobs:
 
       - run: yarn install --frozen-lockfile
       - run: yarn run build
-       env:
+        env:
           NEXT_PUBLIC_BASE_PATH: /kodeworks.no-poc
       - run: yarn run export
+        env:
+          NEXT_PUBLIC_BASE_PATH: /kodeworks.no-poc
       - run: touch ./out/.nojekyll # Github Pages uses jekyll which doesn't serve the _next-folder
 
       - name: Deploy 🚀
