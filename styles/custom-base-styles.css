@@ -1,2 +1,4 @@
-@import './fonts.css';
-
+/*@import './fonts.css';*/
+body {
+  font-family: 'NON Natural Grotesk';
+}

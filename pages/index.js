@@ -21,7 +21,7 @@ export default function Home() {
       <section className="relative my-16">
         <CardContainer variant={Variant.BLACK}>
           <div className="md:mr-auto md:w-1/2 md:pr-10">
-            <h2 className="mt-2 text-3xl font-normal tracking-tight text-white sm:text-4xl">
+            <h2 className="mt-2 text-3xl font-thin tracking-tight text-white sm:text-4xl">
               Vi muliggjør ideer!
             </h2>
             <p className="mt-3 text-lg">

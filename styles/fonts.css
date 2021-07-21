@@ -3,65 +3,77 @@
     font-family: 'NON Natural Grotesk';
     font-style: normal;
     font-weight: 400;
-    src: url('/fonts/non-natural-grotesk-regular.eot'); /* IE9 Compat Modes */
+    src: url(env(--url-prefix) + '/fonts/non-natural-grotesk-regular.eot'); /* IE9 Compat Modes */
     src: local('NON Natural Grotesk Regular'),
       local('non-natural-grotesk-regular'),
-      url('/fonts/non-natural-grotesk-regular.eot?#iefix')
+      url(env(--url-prefix) + '/fonts/non-natural-grotesk-regular.eot?#iefix')
         format('embedded-opentype'),
-      /* IE6-IE8 */ url('/fonts/non-natural-grotesk-regular.woff2')
+      /* IE6-IE8 */
+        url(env(--url-prefix) + '/fonts/non-natural-grotesk-regular.woff2')
         format('woff2'),
-      /* Super Modern Browsers */ url('/fonts/non-natural-grotesk-regular.woff')
+      /* Super Modern Browsers */
+        url(env(--url-prefix) + '/fonts/non-natural-grotesk-regular.woff')
         format('woff'); /* Modern Browsers */
   }
   @font-face {
     font-family: 'NON Natural Grotesk';
     font-style: normal;
     font-weight: 100;
-    src: url('/fonts/non-natural-grotesk-thin.eot'); /* IE9 Compat Modes */
+    src: url(env(--url-prefix) + '/fonts/non-natural-grotesk-thin.eot'); /* IE9 Compat Modes */
     src: local('NON Natural Grotesk Thin'), local('non-natural-grotesk-thin'),
-      url('/fonts/non-natural-grotesk-thin.eot?#iefix')
+      url(env(--url-prefix) + '/fonts/non-natural-grotesk-thin.eot?#iefix')
         format('embedded-opentype'),
-      /* IE6-IE8 */ url('/fonts/non-natural-grotesk-thin.woff2') format('woff2'),
-      /* Super Modern Browsers */ url('/fonts/non-natural-grotesk-thin.woff')
+      /* IE6-IE8 */
+        url(env(--url-prefix) + '/fonts/non-natural-grotesk-thin.woff2')
+        format('woff2'),
+      /* Super Modern Browsers */
+        url(env(--url-prefix) + '/fonts/non-natural-grotesk-thin.woff')
         format('woff'); /* Modern Browsers */
   }
   @font-face {
     font-family: 'NON Natural Grotesk';
     font-style: normal;
     font-weight: 300;
-    src: url('/fonts/non-natural-grotesk-light.eot'); /* IE9 Compat Modes */
+    src: url(env(--url-prefix) + '/fonts/non-natural-grotesk-light.eot'); /* IE9 Compat Modes */
     src: local('NON Natural Grotesk Light'), local('non-natural-grotesk-light'),
-      url('/fonts/non-natural-grotesk-light.eot?#iefix')
+      url(env(--url-prefix) + '/fonts/non-natural-grotesk-light.eot?#iefix')
         format('embedded-opentype'),
-      /* IE6-IE8 */ url('/fonts/non-natural-grotesk-light.woff2')
+      /* IE6-IE8 */
+        url(env(--url-prefix) + '/fonts/non-natural-grotesk-light.woff2')
         format('woff2'),
-      /* Super Modern Browsers */ url('/fonts/non-natural-grotesk-light.woff')
+      /* Super Modern Browsers */
+        url(env(--url-prefix) + '/fonts/non-natural-grotesk-light.woff')
         format('woff'); /* Modern Browsers */
   }
   @font-face {
     font-family: 'NON Natural Grotesk';
     font-style: normal;
     font-weight: 500;
-    src: url('/fonts/non-natural-grotesk-medium.eot'); /* IE9 Compat Modes */
+    src: url(env(--url-prefix) + '/fonts/non-natural-grotesk-medium.eot'); /* IE9 Compat Modes */
     src: local('NON Natural Grotesk Medium'),
       local('non-natural-grotesk-medium'),
-      url('/fonts/non-natural-grotesk-medium.eot?#iefix')
+      url(env(--url-prefix) + '/fonts/non-natural-grotesk-medium.eot?#iefix')
         format('embedded-opentype'),
-      /* IE6-IE8 */ url('/fonts/non-natural-grotesk-medium.woff2')
+      /* IE6-IE8 */
+        url(env(--url-prefix) + '/fonts/non-natural-grotesk-medium.woff2')
         format('woff2'),
-      /* Super Modern Browsers */ url('/fonts/non-natural-grotesk-medium.woff')
+      /* Super Modern Browsers */
+        url(env(--url-prefix) + '/fonts/non-natural-grotesk-medium.woff')
         format('woff'); /* Modern Browsers */
   }
   @font-face {
     font-family: 'NON Natural Grotesk';
     font-style: normal;
     font-weight: 700;
-    src: url('/fonts/non-natural-grotesk-bold.eot'); /* IE9 Compat Modes */
+    src: url(env(--url-prefix) + '/fonts/non-natural-grotesk-bold.eot'); /* IE9 Compat Modes */
     src: local('NON Natural Grotesk Bold'), local('non-natural-grotesk-bold'),
-      url('/fonts/non-natural-grotesk-bold.eot?#iefix')
+      url(env(--url-prefix) + '/fonts/non-natural-grotesk-bold.eot?#iefix')
         format('embedded-opentype'),
-      /* IE6-IE8 */ url('/fonts/non-natural-grotesk-bold.woff2') format('woff2'),
-      /* Super Modern Browsers */ url('/fonts/non-natural-grotesk-bold.woff')
+      /* IE6-IE8 */
+        url(env(--url-prefix) + '/fonts/non-natural-grotesk-bold.woff2')
+        format('woff2'),
+      /* Super Modern Browsers */
+        url(env(--url-prefix) + '/fonts/non-natural-grotesk-bold.woff')
         format('woff'); /* Modern Browsers */
   }
 }
