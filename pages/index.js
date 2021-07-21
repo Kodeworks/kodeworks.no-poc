@@ -42,6 +42,27 @@ export default function Home() {
         </TextCard>
       </section>
       <section className="my-16">
+        <TextCard variant={Variant.WHITE}>
+          <div className="md:mr-auto md:w-1/2 md:pr-10">
+            <h2 className="mt-2 text-3xl font-normal tracking-tight text-black sm:text-4xl">
+              Vil du jobbe med oss?
+            </h2>
+            <p className="mt-3 text-lg">
+              Vi vil bli bedre kjent med deg! Ta gjerne kontakt for en uformell
+              prat over en kaffe. Titt innom håndboka vår og se hva vi kan
+              tilby.
+            </p>
+            <div className="mt-8">
+              <LinkButton
+                variant={Variant.BLACK}
+                linkText="Personalhåndboka"
+                url="#"
+              ></LinkButton>
+            </div>
+          </div>
+        </TextCard>
+      </section>
+      <section className="my-16">
         <TextCard className="border border-red-500">
           <div className="md:mr-auto md:w-1/2 md:pr-10">
             <h2 className="mt-2 text-3xl font-normal tracking-tight text-black sm:text-4xl">
