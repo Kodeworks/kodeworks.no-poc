@@ -1,8 +1,9 @@
+import {urlPrefix} from '../../utils/urlPrefix'
 const Seismograph = ({children}) => {
   return (
     <div className="relative flex justify-center">
       <img
-        src="/seismograph.svg"
+        src={urlPrefix + '/seismograph.svg'}
         alt="Generative art looking like a seismogram based on digital interactions in Kodeworks"
       />
       {children}
