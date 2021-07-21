@@ -2,10 +2,6 @@ import {useState, useEffect, Component} from 'react'
 import Head from 'next/head'
 import Header from './Header'
 import Footer from './Footer'
-import {
-  useComponentTheme,
-  ComponentThemeProvider,
-} from '../../hooks/useComponentTheme'
 
 const Layout = ({backgroundOpacity = 1, children}) => {
   return (
@@ -21,7 +17,7 @@ const Layout = ({backgroundOpacity = 1, children}) => {
       </Head>
       <Header></Header>
       <main className="flex-grow w-full px-2 xl:mx-auto xl:max-w-screen-xl content sm:px-4 md:px-8 lg:px-16">
-        <ComponentThemeProvider>{children}</ComponentThemeProvider>
+        {children}
       </main>
       <Footer></Footer>
     </div>
