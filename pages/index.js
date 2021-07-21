@@ -31,7 +31,7 @@ export default function Home() {
               prat over en kaffe. Titt innom håndboka vår og se hva vi kan
               tilby.
             </p>
-            <div className="mt-8 shadow flex-inline">
+            <div className="mt-8">
               <LinkButton
                 variant={Variant.WHITE}
                 linkText="Personalhåndboka"
