@@ -7,7 +7,7 @@ const VARIANT_MAPS = {
   [Variant.WHITE]: 'bg-gray-50 text-gray-900',
 }
 
-const TextCard = ({variant = Variant.MAIN_GRAY, children}) => {
+const CardContainer = ({variant = Variant.MAIN_GRAY, children}) => {
   return (
     <div
       className={classNames(
@@ -19,4 +19,4 @@ const TextCard = ({variant = Variant.MAIN_GRAY, children}) => {
     </div>
   )
 }
-export default TextCard
+export default CardContainer

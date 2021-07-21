@@ -3,7 +3,7 @@ import Layout from '../components/templates/Layout'
 import Seismograph from '../components/molecules/Seismograph'
 import Logo from '../components/atoms/Logo'
 import ImageSection from '../components/templates/ImageSection'
-import TextCard from '../components/molecules/TextCard'
+import CardContainer from '../components/molecules/CardContainer'
 import Variant from '../components/atoms/Variant'
 import LinkButton from '../components/molecules/LinkButton'
 
@@ -21,7 +21,7 @@ export default function Home() {
 
       <ImageSection></ImageSection>
       <section className="my-16">
-        <TextCard variant={Variant.BLACK}>
+        <CardContainer variant={Variant.BLACK}>
           <div className="md:mr-auto md:w-1/2 md:pr-10">
             <h2 className="mt-2 text-3xl font-normal tracking-tight text-white sm:text-4xl">
               Vil du jobbe med oss?
@@ -39,11 +39,11 @@ export default function Home() {
               ></LinkButton>
             </div>
           </div>
-        </TextCard>
+        </CardContainer>
       </section>
       <section className="my-16">
-        <TextCard variant={Variant.WHITE}>
-          <div className="md:mr-auto md:w-1/2 md:pr-10">
+        <CardContainer variant={Variant.WHITE}>
+          <div className="text-center md:mr-auto md:w-1/2 md:pr-10">
             <h2 className="mt-2 text-3xl font-normal tracking-tight text-black sm:text-4xl">
               Vil du jobbe med oss?
             </h2>
@@ -60,11 +60,11 @@ export default function Home() {
               ></LinkButton>
             </div>
           </div>
-        </TextCard>
+        </CardContainer>
       </section>
       <section className="my-16">
-        <TextCard className="border border-red-500">
-          <div className="md:mr-auto md:w-1/2 md:pr-10">
+        <CardContainer className="border border-red-500">
+          <div className="text-left md:ml-auto md:w-1/2 md:pl-10">
             <h2 className="mt-2 text-3xl font-normal tracking-tight text-black sm:text-4xl">
               Vil du jobbe med oss?
             </h2>
@@ -81,7 +81,7 @@ export default function Home() {
               ></LinkButton>
             </div>
           </div>
-        </TextCard>
+        </CardContainer>
       </section>
     </Layout>
   )
