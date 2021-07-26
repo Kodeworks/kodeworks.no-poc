@@ -1,4 +1,4 @@
 module.exports = {
-  basePath: '/kodeworks.no-poc',
-  assetPrefix: '/kodeworks.no-poc',
+  basePath: process.env.NEXT_PUBLIC_BASE_PATH,
+  assetPrefix: process.env.NEXT_PUBLIC_BASE_PATH,
 }

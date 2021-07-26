@@ -1,3 +1,4 @@
+import {urlPrefix} from '../../utils/urlPrefix'
 const Footer = ({children}) => {
   return (
     <footer className="flex items-center justify-center w-full h-24 border-t">
@@ -13,7 +14,11 @@ const Footer = ({children}) => {
           <a href="mailto:post@kodeworks.no">post@kodeworks.no</a>
         </div>
       </address>
-      <img src="/Logo.svg" alt="Kodeworks Logo" className="h-4 ml-5" />
+      <img
+        src={urlPrefix + '/Logo.svg'}
+        alt="Kodeworks Logo"
+        className="h-4 ml-5"
+      />
       {children}
     </footer>
   )
