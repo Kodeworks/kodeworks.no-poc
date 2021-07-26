@@ -25,6 +25,9 @@ jobs:
               - '.storybook/**'
               - 'stories/**'
               - '**.stories.js'
+              - 'package.json'
+              - 'yarn.lock'
+              - 'postcss.config.js'
             allChanges:
             - '**'
 
