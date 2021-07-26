@@ -16,12 +16,11 @@ export default function Home() {
           </div>
         </div>
       </Seismograph>
-      <h1>Hvem er vi?</h1>
 
       <section className="relative my-16">
         <CardContainer variant={Variant.BLACK}>
           <div className="md:mr-auto md:w-1/2 md:pr-10">
-            <h2 className="mt-2 text-3xl font-thin tracking-tight text-white sm:text-4xl">
+            <h2 className="mt-2 text-3xl tracking-tight text-white font-regular sm:text-4xl">
               Vi muliggjør ideer!
             </h2>
             <p className="mt-3 text-lg">
