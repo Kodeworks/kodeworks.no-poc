@@ -1,16 +1,14 @@
 # This workflow will do a clean install of node dependencies, cache/restore them, build the source code and run tests across different versions of node
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
 
-name: Node.js CI
+name: Continous integration
 
 on:
-  push:
-    branches: [main]
   pull_request:
     branches: [main]
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
 
     strategy:
@@ -33,10 +31,3 @@ jobs:
       - run: yarn run export
         env:
           NEXT_PUBLIC_BASE_PATH: /kodeworks.no-poc
-      - run: touch ./out/.nojekyll # Github Pages uses jekyll which doesn't serve the _next-folder
-
-      - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@4.1.4
-        with:
-          branch: gh-pages # The branch the action should deploy to.
-          folder: out # The folder the action should deploy.
