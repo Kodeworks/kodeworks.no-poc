@@ -17,7 +17,13 @@
 
 ## Dependencies
 
-- https://github.com/n8tb1t/use-scroll-position
+### [use-scroll-position](https://github.com/n8tb1t/use-scroll-position)
+
+- Used in `hooks/useScrollBasedOpacity.js` to change opacity based on scroll position.
+
+### [postcss-font-magician](https://github.com/csstools/postcss-font-magician)
+
+- Used to load custom fonts in `postcss.config.js` using a `urlPrefix`-variable to support Github Pages without a custom domain.
 
 ## Storybook
 
