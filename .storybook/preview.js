@@ -1,3 +1,4 @@
+import React from 'react'
 import '../styles/tailwind.css'
 export const parameters = {
   actions: {argTypesRegex: '^on[A-Z].*'},
@@ -8,3 +9,10 @@ export const parameters = {
     },
   },
 }
+export const decorators = [
+  Story => (
+    <div className="font-primary">
+      <Story />
+    </div>
+  ),
+]
