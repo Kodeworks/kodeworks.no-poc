@@ -5,6 +5,9 @@ import Logo from '../components/atoms/Logo'
 import CardContainer from '../components/molecules/CardContainer'
 import Variant from '../components/atoms/Variant'
 import LinkButton from '../components/molecules/LinkButton'
+import Person from '../components/organisms/Person'
+import people from '../data/people'
+import PeopleMasonry from '../components/templates/PeopleMasonry'
 
 export default function Home() {
   return (
@@ -16,7 +19,9 @@ export default function Home() {
           </div>
         </div>
       </Seismograph>
-
+      <section className="relative my-16">
+        <PeopleMasonry></PeopleMasonry>
+      </section>
       <section className="relative my-16">
         <CardContainer variant={Variant.BLACK}>
           <div className="md:mr-auto md:w-1/2 md:pr-10">
