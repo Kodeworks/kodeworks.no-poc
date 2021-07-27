@@ -1,10 +1,11 @@
 import {projectNames} from './projects'
+import {urlPrefix} from '../utils/urlPrefix'
 
 const people = [
   {
     id: '1',
     portrait: {
-      src: '/portraits/silouette.png',
+      src: urlPrefix + '/portraits/silouette.png',
       tailwindAspectRatio: 'aspect-w-1 aspect-h-1',
     },
     name: 'Ola Nordmann',
