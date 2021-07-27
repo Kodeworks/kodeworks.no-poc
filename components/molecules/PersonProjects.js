@@ -1,6 +1,7 @@
 import projects from '../../data/projects'
 import LinkButton from './LinkButton'
 import Variant from '../atoms/Variant'
+import PropTypes from 'prop-types'
 
 const PersonProjects = ({personProjects}) => {
   return (
@@ -18,4 +19,9 @@ const PersonProjects = ({personProjects}) => {
     </div>
   )
 }
+
+PersonProjects.propTypes = {
+  personProjects: PropTypes.arrayOf(PropTypes.string).isRequired,
+}
+
 export default PersonProjects

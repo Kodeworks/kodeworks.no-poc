@@ -1,5 +1,6 @@
 import Variant from '../atoms/Variant'
 import classNames from 'classnames'
+import PropTypes from 'prop-types'
 
 const VARIANT_MAPS = {
   [Variant.MAIN_GRAY]: 'bg-main-gray-500 text-black',
@@ -19,4 +20,9 @@ const CardContainer = ({variant = Variant.MAIN_GRAY, children}) => {
     </div>
   )
 }
+
+CardContainer.propTypes = {
+  variant: PropTypes.oneOf([Variant.MAIN_GRAY, Variant.BLACK, Variant.WHITE]),
+}
+
 export default CardContainer

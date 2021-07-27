@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import Variant from '../atoms/Variant'
 import classNames from 'classnames'
+import PropTypes from 'prop-types'
 
 const VARIANT_MAPS = {
   [Variant.MAIN_GRAY]: 'bg-main-gray-500 text-black',
@@ -35,4 +36,9 @@ const LinkButton = ({variant = Variant.MAIN_GRAY, url = '#', linkText}) => {
   )
 }
 
+LinkButton.propTypes = {
+  variant: PropTypes.oneOf([Variant.MAIN_GRAY, Variant.BLACK, Variant.WHITE]),
+  url: PropTypes.string,
+  linkText: PropTypes.string.isRequired,
+}
 export default LinkButton

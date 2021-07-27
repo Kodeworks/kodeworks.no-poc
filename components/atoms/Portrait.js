@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types'
+
 const Portrait = ({portrait, name}) => {
   return (
     <div className="aspect-w-3 aspect-h-2">
@@ -9,4 +11,10 @@ const Portrait = ({portrait, name}) => {
     </div>
   )
 }
+
+Portrait.propTypes = {
+  portrait: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+}
+
 export default Portrait
