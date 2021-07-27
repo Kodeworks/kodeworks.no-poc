@@ -8,7 +8,32 @@ on:
     branches: [main]
 
 jobs:
-  build:
+  # Run change detection
+  changes:
+    runs-on: ubuntu-latest
+    # Set job outputs to values from filter step
+    outputs:
+      storybook: ${{ steps.filter.outputs.storybook }}
+      allChanges: ${{ steps.filter.outputs.allChanges }}
+    steps:
+      # For pull requests it's not necessary to checkout the code
+      - uses: dorny/paths-filter@v2
+        id: filter
+        with:
+          filters: |
+            storybook: &storybook
+              - '.storybook/**'
+              - 'stories/**'
+              - '**.stories.js'
+              - 'package.json'
+              - 'yarn.lock'
+              - 'postcss.config.js'
+            allChanges:
+            - '**'
+
+  build-and-export-static-pages:
+    needs: changes
+    if: ${{ needs.changes.outputs.allChanges == 'true' }}
     runs-on: ubuntu-latest
 
     strategy:
@@ -29,5 +54,28 @@ jobs:
         env:
           NEXT_PUBLIC_BASE_PATH: /kodeworks.no-poc
       - run: yarn run export
+        env:
+          NEXT_PUBLIC_BASE_PATH: /kodeworks.no-poc
+
+  build-storybook:
+    needs: changes
+    if: ${{ needs.changes.outputs.storybook == 'true' }}
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [16.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'yarn'
+
+      - run: yarn install --frozen-lockfile
+      - run: yarn run build-storybook
         env:
           NEXT_PUBLIC_BASE_PATH: /kodeworks.no-poc
