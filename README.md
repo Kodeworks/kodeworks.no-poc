@@ -3,11 +3,11 @@
 `yarn` to install dependencies  
 `yarn dev` to start development
 
-## VSCode setup
+## Recommended VSCode setup
 
 - Rename `.vscode/recommended.settings.json` to `.vscode/settings.json` to enable recommended VSCode settings
 
-### Recommended VSCode Extensions
+### VSCode Extensions
 
 - [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
   - Automated code formatting
@@ -15,6 +15,21 @@
   - Improves the coding experience when using TailwindCSS with features such as autocomplete, CSS Linting and hover preview.
 - [Headwind](https://marketplace.visualstudio.com/items?itemName=heybourn.headwind)
   - An opinionated class sorter for TailwindCSS, ensures consistent ordering of classes.
+
+# CI/CD
+
+### Continous Integration
+
+- The `Continous integration` workflow defined in `./github/workflows/kodeworks-CI.yml` is triggered on all Pull Requests to the `main` branch.
+
+### Continous Deployment
+
+- The `Continous deployment` workflow defined in `./github/workflows/kodeworks-CD.yml` is triggered when code is pushed to the `main` branch, e.g. after a merge in a branch.
+- The site is hosted at https://kodeworks.github.io/kodeworks.no-poc
+  - The use of a subpath (`/kodeworks.no-poc`) requires a URL prefix for navigation and resources.
+    - Resources can use `/utils/urlPrefix.js`
+    - Navigation is [handled by NextJS](https://nextjs.org/docs/api-reference/next.config.js/basepath) using `basePath` in `next.config.js`
+    - The environment variable `NEXT_PUBLIC_BASE_PATH` used for the subpath is defined in `./github/workflows/kodeworks-CD.yml`
 
 # Tech stack
 
