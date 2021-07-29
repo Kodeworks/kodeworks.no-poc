@@ -6,7 +6,15 @@
 ## VSCode setup
 
 - Rename `.vscode/recommended.settings.json` to `.vscode/settings.json` to enable recommended VSCode settings
-- Recommended plugins [Todo]
+
+### Recommended VSCode Extensions
+
+- [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+  - Automated code formatting
+- [Tailwind CSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss)
+  - Improves the coding experience when using TailwindCSS with features such as autocomplete, CSS Linting and hover preview.
+- [Headwind](https://marketplace.visualstudio.com/items?itemName=heybourn.headwind)
+  - An opinionated class sorter for TailwindCSS, ensures consistent ordering of classes.
 
 # Tech stack
 
