@@ -18,18 +18,37 @@
 
 # CI/CD
 
-### Continous Integration
+## Continous Integration
 
-- The `Continous integration` workflow defined in `./github/workflows/kodeworks-CI.yml` is triggered on all Pull Requests to the `main` branch.
+Trigger: on all Pull Requests to the `main` branch  
+Definition: `./github/workflows/kodeworks-CI.yml`
 
-### Continous Deployment
+## Continous Deployment
 
-- The `Continous deployment` workflow defined in `./github/workflows/kodeworks-CD.yml` is triggered when code is pushed to the `main` branch, e.g. after a merge in a branch.
-- The site is hosted at https://kodeworks.github.io/kodeworks.no-poc
-  - The use of a subpath (`/kodeworks.no-poc`) requires a URL prefix for navigation and resources.
-    - Resources can use `/utils/urlPrefix.js`
-    - Navigation is [handled by NextJS](https://nextjs.org/docs/api-reference/next.config.js/basepath) using `basePath` in `next.config.js`
-    - The environment variable `NEXT_PUBLIC_BASE_PATH` used for the subpath is defined in `./github/workflows/kodeworks-CD.yml`
+Trigger: when code is pushed to the `main` branch, e.g. after merging in a branch  
+Definition: `./github/workflows/kodeworks-CD.yml`
+
+# Hosting
+
+The site is hosted at https://kodeworks.github.io/kodeworks.no-poc
+
+## Subpath
+
+- The use of a subpath (`/kodeworks.no-poc`) requires a URL prefix for navigation and resources.
+  - Resources can use `utils/urlPrefix.js`
+    - Fonts are added using [postcss-font-magician](#postcss-font-magician) in order to utilize `utils/urlPrefix.js`
+  - Navigation is [handled by NextJS](https://nextjs.org/docs/api-reference/next.config.js/basepath) using `basePath` in `next.config.js`
+  - The environment variable `NEXT_PUBLIC_BASE_PATH` used for the subpath is defined in `./github/workflows/kodeworks-CD.yml`
+
+## NextJS limitations
+
+Since we host a static HTML app without a Node.js server, [some NextJS functionality relying on a Node.js server is not available](https://nextjs.org/docs/advanced-features/static-html-export#caveats).
+
+Most notably:
+
+- The [`next/image`](https://nextjs.org/docs/api-reference/next/image)-component is not available
+- [`getServerSideProps`](https://nextjs.org/docs/basic-features/data-fetching#getserversideprops-server-side-rendering) is not supported
+- [`API Routes`](https://nextjs.org/docs/api-routes/introduction) are not supported
 
 # Tech stack
 
