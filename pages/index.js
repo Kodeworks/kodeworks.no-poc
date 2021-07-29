@@ -12,13 +12,17 @@ import PeopleMasonry from '../components/templates/PeopleMasonry'
 export default function Home() {
   return (
     <Layout>
-      <Seismograph>
-        <div className="absolute inset-x-0 bottom-0 flex px-2">
-          <div className="flex flex-shrink mx-auto w-96">
-            <Logo></Logo>
+      <div className="relative">
+        <Seismograph></Seismograph>
+        <div className="absolute inset-0 flex items-center justify-center px-2">
+          <div className="flex-shrink mx-auto mt-12 sm:mt-24 h-28">
+            <h1 className="contents">
+              <span className="sr-only">Kodeworks</span>
+              <Logo></Logo>
+            </h1>
           </div>
         </div>
-      </Seismograph>
+      </div>
       <section className="relative my-16">
         <PeopleMasonry></PeopleMasonry>
       </section>
