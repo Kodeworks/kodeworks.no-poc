@@ -16,7 +16,10 @@ export default function Home() {
         <Seismograph></Seismograph>
         <div className="absolute inset-0 flex items-center justify-center px-2">
           <div className="flex-shrink mx-auto mt-12 sm:mt-24 h-28">
+            <h1 className="contents">
+              <span className="sr-only">Kodeworks</span>
               <Logo></Logo>
+            </h1>
           </div>
         </div>
       </div>

@@ -5,6 +5,7 @@ const Logo = () => {
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 900.81 132.83"
       className="w-full h-full fill-current"
+      aria-hidden="true"
     >
       <g id="Layer_2" data-name="Layer 2">
         <g id="Layer_1-2" data-name="Layer 1">
