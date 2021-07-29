@@ -2,6 +2,7 @@ import {useState, useEffect, Component} from 'react'
 import Head from 'next/head'
 import Header from './Header'
 import Footer from './Footer'
+import SeismographSmall from '../molecules/SeismographSmall'
 
 const Layout = ({backgroundOpacity = 1, children}) => {
   return (
@@ -16,7 +17,10 @@ const Layout = ({backgroundOpacity = 1, children}) => {
         </noscript>
       </Head>
       <Header></Header>
-      <main className="flex-grow w-full px-2 xl:mx-auto xl:max-w-screen-xl contents sm:px-4 md:px-8 lg:px-16">
+      <main className="relative flex-grow w-full">
+        <div className="absolute hidden w-16 sm:block sm:top-0 sm:w-28 md:w-40 right-1 sm:right-24 md:right-28">
+          <SeismographSmall />
+        </div>
         {children}
       </main>
     </div>
