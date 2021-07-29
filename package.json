@@ -31,6 +31,8 @@
     "@testing-library/react": "^12.0.0",
     "autoprefixer": "^10.2.6",
     "babel-loader": "^8.2.2",
+    "jest": "^27.0.6",
+    "jest-dom": "^4.0.0",
     "postcss": "^8.3.5",
     "postcss-font-magician": "^3.0.0",
     "postcss-import": "^14.0.2",
