@@ -17,6 +17,10 @@
 
 ## Dependencies
 
+### [@tailwindcss-aspect-ratio](https://github.com/tailwindlabs/tailwindcss-aspect-ratio)
+
+- Official plugin to TailwindCSS used to set the aspect ratio of images at different screen sizes.
+
 ### [use-scroll-position](https://github.com/n8tb1t/use-scroll-position)
 
 - Used in `hooks/useScrollBasedOpacity.js` to change opacity based on scroll position.
