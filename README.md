@@ -50,6 +50,43 @@ Most notably:
 - [`getServerSideProps`](https://nextjs.org/docs/basic-features/data-fetching#getserversideprops-server-side-rendering) is not supported
 - [`API Routes`](https://nextjs.org/docs/api-routes/introduction) are not supported
 
+# Mental model of repository
+
+- [Pages](https://nextjs.org/docs/basic-features/pages) are React components defined in the `/pages`-folder
+  - `_document.js` is a [custom NextJS-component](https://nextjs.org/docs/advanced-features/custom-document) used to augment the `<html>` and `<body>` tag
+  - `_app.js` is a [custom NextJS-component](https://nextjs.org/docs/advanced-features/custom-app) used to control page initialization
+- [Routing](https://nextjs.org/docs/routing/introduction) is dictated by the structure of components/folders in the `/pages`-folder
+  ```
+    Folder structure:               URL:
+    pages/
+    ├── index.html                  /
+    ├── folk/                       /folk -> returns 404 since it is a folder
+    │   ├── ola-nordmann.js         /folk/ola-nordmann
+    │   └── eirik.js                /folk/eirik
+    └── prosjekter.js               /prosjekter
+        └──  [prosjekt].js          /prosjekter/prosjekt -> see dynamic routes below 👇
+  ```
+  - [dynamic routes](https://nextjs.org/docs/routing/dynamic-routes) are used in `/pages/prosjekter/[prosjekt].js`
+- `components/` are structured according to [the atomic design methodology](https://bradfrost.com/blog/post/atomic-web-design/)
+- Storybook-stories are located next to the component
+- `data/` contains content for people, projects and tech used in components
+- `hooks/` contains custom React hooks
+- `utils/` contains custom functions for small/repetitive operations
+- `public/` contains static public resources
+- `styles/` contains `*.css`.
+
+## Config files
+
+- `.github/workflows/` defines [CI/CD](#cicd)
+- `.storybook/` configures [Storybook](#storybook)
+- `next.config.js` configures [NextJS](https://nextjs.org/docs/api-reference/next.config.js/introduction)
+- `postcss.config.js` configures [PostCSS](#postcss)
+- `tailwind.config.js` configures [TailwindCSS](#tailwindcss)
+  ***
+- `.vscode/` configures [VS Code](#recommended-vscode-setup)
+- `.prettierrc` configures [prettier](#vscode-extensions)
+- `.gitignore` [specifies untracked files](https://git-scm.com/docs/gitignore)
+
 # Tech stack
 
 - [React](https://reactjs.org/)
