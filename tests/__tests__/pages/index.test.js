@@ -14,7 +14,3 @@ test('h1 with SVG as title should contain screen-reader friendly title', async (
   expect(screenReaderTitle.parentElement.tagName).toEqual('H1')
   expect(screenReaderTitle.nextSibling.tagName).toEqual('svg')
 })
-
-test('failing test', async () => {
-  expect(false).toBe(true)
-})
