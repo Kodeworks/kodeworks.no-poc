@@ -8,7 +8,6 @@ jobs:
   report:
     runs-on: ubuntu-latest
     steps:
-      - name:
       - uses: dorny/test-reporter@v1
         if: ${{ github.event.workflow_run.tests.outputs.RUN_TEST_REPORT == 'true' }}
         with:
