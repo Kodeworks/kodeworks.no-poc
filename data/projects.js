@@ -60,6 +60,10 @@ const projects = [
       'Kodeworks støtter Equinors forsknings- og digitaliseringsaktiviteter gjennom analyse, design, programmering og testing.',
     ],
   },
+  {
+    id: '4',
+    name: 'Mangelfull prosjektbeskrivelse',
+  },
 ]
 
 export default projects
