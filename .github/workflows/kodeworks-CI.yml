@@ -17,7 +17,8 @@ jobs:
       notAppRelated: ${{ steps.filter.outputs.notAppRelated }}
     steps:
       # For pull requests it's not necessary to checkout the code
-      - uses: dorny/paths-filter@v2
+      - name: Run change detection
+        uses: dorny/paths-filter@v2
         id: filter
         with:
           filters: |
@@ -35,11 +36,13 @@ jobs:
               - 'README.md'
             appRelated:
               - '!(*notAppRelated)'
-      - name: Step skip overview
+      - name: Why jobs are skipped or not
         run: |
-          echo "skipping job tests: ${{ steps.filter.outputs.appRelated }}"
-          echo "skipping job build-and-export-static-pages: ${{ steps.filter.outputs.appRelated }}"
-          echo "skipping job build-storybook: ${{ steps.filter.outputs.storybook }}"
+          echo "skipping job tests: ${{ steps.filter.outputs.appRelated == 'false'}"
+          echo "skipping job build-and-export-static-pages: ${{ steps.filter.outputs.appRelated == 'false' }}"
+          echo "skipping job build-storybook: ${{ steps.filter.outputs.storybook == 'false'}}"
+          echo ""
+          echo "Jobs use the output from the change detection step above to decide whether to run or not."
 
   tests:
     needs: [change-detection]
