@@ -36,6 +36,7 @@ jobs:
               - 'README.md'
             appRelated:
               - '!(*notAppRelated)'
+              - '**'
       - name: Why jobs/workflows are skipped or not
         run: |
           echo "skipping job tests: ${{ steps.filter.outputs.appRelated == 'false'}}"
