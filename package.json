@@ -7,6 +7,7 @@
     "build": "next build",
     "start": "next start",
     "test": "jest --env=jsdom",
+    "test:ci": "jest --ci --env=jsdom --reporters='default' --reporters='./tests/github-actions-reporter'",
     "export": "next export",
     "build-export": "yarn build && yarn export",
     "format": "prettier \"**/*.+(js|json|less|css|html|ts|tsx|md)\" --write",
