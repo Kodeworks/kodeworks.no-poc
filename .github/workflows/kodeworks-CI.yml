@@ -13,38 +13,41 @@ jobs:
     runs-on: ubuntu-latest
     # Set job outputs to values from filter step
     outputs:
+      appRelated: ${{ steps.filter.outputs.appRelated }}
       storybook: ${{ steps.filter.outputs.storybook }}
-      allChanges: ${{ steps.filter.outputs.allChanges }}
+      notAppRelated: ${{ steps.filter.outputs.notAppRelated }}
     steps:
       # For pull requests it's not necessary to checkout the code
       - uses: dorny/paths-filter@v2
         id: filter
         with:
           filters: |
-            storybook: &storybook
+            storybook:
               - '.storybook/**'
               - 'stories/**'
+              - 'components/**'
               - '**.stories.js'
               - 'package.json'
               - 'yarn.lock'
               - 'postcss.config.js'
-            allChanges:
-            - '**'
+            notAppRelated: &notAppRelated
+              - '.github/**'
+              - '.vscode/**'
+              - 'README.md'
+            appRelated:
+              - '!(*notAppRelated)'
 
   tests:
+    needs: [changes]
+    if: ${{ needs.changes.outputs.appRelated == 'true' }}
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [16.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
       - uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: Use Node.js 16
         uses: actions/setup-node@v2
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: '16'
           cache: 'yarn'
       - run: yarn install --frozen-lockfile
       - run: yarn test:ci
@@ -53,22 +56,22 @@ jobs:
         with:
           name: test-results
           path: reports/jest-junit.xml
+      - name: Set flag to run Test Report
+        if: always() # run this step even if previous step failed
+        run: echo '::set-output name=RUN_TEST_REPORT::true'
+        id: random-color-generator
 
   build-and-export-static-pages:
-    needs: tests
+    needs: [changes, tests]
+    if: ${{ needs.changes.outputs.app == 'true' }}
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [16.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
       - uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: Use Node.js 16
         uses: actions/setup-node@v2
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: '16'
           cache: 'yarn'
 
       - run: yarn install --frozen-lockfile
@@ -84,17 +87,12 @@ jobs:
     if: ${{ needs.changes.outputs.storybook == 'true' }}
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [16.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-
     steps:
       - uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: Use Node.js 16
         uses: actions/setup-node@v2
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: '16'
           cache: 'yarn'
 
       - run: yarn install --frozen-lockfile
