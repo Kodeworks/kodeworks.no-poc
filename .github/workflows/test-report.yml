@@ -7,11 +7,13 @@ on:
 jobs:
   report:
     runs-on: ubuntu-latest
-    if: ${{ github.event.workflow_run.tests.outputs.RUN_TEST_REPORT == 'true' }}
     steps:
       - uses: dorny/test-reporter@v1
+        if: ${{ github.event.workflow_run.tests.outputs.RUN_TEST_REPORT == 'true' }}
         with:
           artifact: test-results # artifact name
           name: JEST Tests # Name of the check run which will be created
           path: 'jest-junit.xml' # Path to test results (inside artifact .zip)
           reporter: jest-junit # Format of test results
+      - run: echo "Test Report Skipped since RUN_TEST_REPORT flag in Continous integration workflow was not set to true"
+        if: ${{ failure() && github.event.workflow_run.tests.outputs.RUN_TEST_REPORT != 'true' }}
