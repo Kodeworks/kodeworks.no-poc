@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     # Set job outputs to values from filter step
     outputs:
-      app: ${{ steps.filter.outputs.app }}
+      appRelated: ${{ steps.filter.outputs.appRelated }}
       storybook: ${{ steps.filter.outputs.storybook }}
       notAppRelated: ${{ steps.filter.outputs.notAppRelated }}
       allChanges: ${{ steps.filter.outputs.allChanges }}
@@ -35,11 +35,8 @@ jobs:
               - '.github/**'
               - '.vscode/**'
               - 'README.md'
-            app:
-              - 'components/**'
-              - '!(*storybook)'
+            appRelated:
               - '!(*notAppRelated)'
-              - '**'
             allChanges:
             - '**'
 
