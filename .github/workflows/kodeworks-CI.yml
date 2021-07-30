@@ -16,14 +16,13 @@ jobs:
       appRelated: ${{ steps.filter.outputs.appRelated }}
       storybook: ${{ steps.filter.outputs.storybook }}
       notAppRelated: ${{ steps.filter.outputs.notAppRelated }}
-      allChanges: ${{ steps.filter.outputs.allChanges }}
     steps:
       # For pull requests it's not necessary to checkout the code
       - uses: dorny/paths-filter@v2
         id: filter
         with:
           filters: |
-            storybook: &storybook
+            storybook:
               - '.storybook/**'
               - 'stories/**'
               - 'components/**'
@@ -37,12 +36,10 @@ jobs:
               - 'README.md'
             appRelated:
               - '!(*notAppRelated)'
-            allChanges:
-            - '**'
 
   tests:
     needs: [changes]
-    if: ${{ needs.changes.outputs.app == 'true' || needs.changes.outputs.storybook == 'true' }}
+    if: ${{ needs.changes.outputs.appRelated == 'true' }}
     runs-on: ubuntu-latest
 
     steps:
