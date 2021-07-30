@@ -32,6 +32,7 @@ jobs:
             - '**'
 
   test:
+    needs: changes
     runs-on: ubuntu-latest
 
     strategy:
@@ -68,8 +69,7 @@ jobs:
           }'
 
   build-and-export-static-pages:
-    needs: changes
-    if: ${{ needs.changes.outputs.allChanges == 'true' }}
+    needs: test
     runs-on: ubuntu-latest
 
     strategy:
@@ -94,7 +94,7 @@ jobs:
           NEXT_PUBLIC_BASE_PATH: /kodeworks.no-poc
 
   build-storybook:
-    needs: changes
+    needs: [changes, test]
     if: ${{ needs.changes.outputs.storybook == 'true' }}
     runs-on: ubuntu-latest
 
