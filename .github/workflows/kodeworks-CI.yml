@@ -44,7 +44,7 @@ jobs:
           echo ""
           echo "skipping workflow Test Report: ${{ steps.filter.outputs.appRelated == 'false'}}"
           echo ""
-          echo "Jobs use the output from the change detection step above to decide whether to run or not. The workflow Test Report will not run if the test job is skipped."
+          echo "Jobs use the output from the change detection step above to decide whether to run or not. The workflow Test Report will not run if the tests job is skipped."
 
   tests:
     needs: [change-detection]
