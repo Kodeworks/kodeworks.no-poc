@@ -38,7 +38,7 @@ jobs:
               - '!(*notAppRelated)'
       - name: Why jobs are skipped or not
         run: |
-          echo "skipping job tests: ${{ steps.filter.outputs.appRelated == 'false'}"
+          echo "skipping job tests: ${{ steps.filter.outputs.appRelated == 'false'}}"
           echo "skipping job build-and-export-static-pages: ${{ steps.filter.outputs.appRelated == 'false' }}"
           echo "skipping job build-storybook: ${{ steps.filter.outputs.storybook == 'false'}}"
           echo ""
