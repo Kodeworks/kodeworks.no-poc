@@ -1,7 +1,7 @@
 name: 'Test Report'
 on:
   workflow_run:
-    workflows: ['kodeworks-CI']
+    workflows: ['Continous integration']
     types:
       - completed
 jobs:
