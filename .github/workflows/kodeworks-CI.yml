@@ -31,7 +31,7 @@ jobs:
             allChanges:
             - '**'
 
-  test-changes-only:
+  tests:
     runs-on: ubuntu-latest
 
     strategy:
@@ -47,15 +47,15 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: 'yarn'
       - run: yarn install --frozen-lockfile
-      - uses: mattallty/jest-github-action@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - run: yarn test:ci
+      - uses: actions/upload-artifact@v2 # upload test results for test-report.yml
+        if: success() || failure() # run this step even if previous step failed
         with:
-          test-command: 'test:ci'
-          changes-only: true
+          name: test-results
+          path: jest-junit.xml
 
   build-and-export-static-pages:
-    needs: test-changes-only
+    needs: tests
     runs-on: ubuntu-latest
 
     strategy:
@@ -80,7 +80,7 @@ jobs:
           NEXT_PUBLIC_BASE_PATH: /kodeworks.no-poc
 
   build-storybook:
-    needs: [changes, test-changes-only]
+    needs: [changes, tests]
     if: ${{ needs.changes.outputs.storybook == 'true' }}
     runs-on: ubuntu-latest
 

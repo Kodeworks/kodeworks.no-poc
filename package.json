@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "test": "jest --env=jsdom",
-    "test:ci": "jest --ci --env=jsdom --coverage --json --outputFile=\"jest.report.json\"",
+    "test:ci": "jest --ci --env=jsdom ---reporters=default --reporters=jest-junit",
     "export": "next export",
     "build-export": "yarn build && yarn export",
     "format": "prettier \"**/*.+(js|json|less|css|html|ts|tsx|md)\" --write",
