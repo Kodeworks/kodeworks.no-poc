@@ -28,6 +28,20 @@ Definition: `./github/workflows/kodeworks-CI.yml`
 Trigger: when code is pushed to the `main` branch, e.g. after merging in a branch  
 Definition: `./github/workflows/kodeworks-CD.yml`
 
+## Running Github Actions locally
+
+The [act library](https://github.com/nektos/act) makes local testing of Github Actions relatively straight forward, providing faster feedback so you don't have to push code to Github to test changes in a workflow.
+
+- [Install act (and Docker)](https://github.com/nektos/act#installation) locally on your machine
+- Run `act -j <name-of-workflow-job-you-want-to-test>` e.g. `act -j test`
+- If you don't want to use the large image requiring +20GB:
+  - Select the Medium size image of act.
+  - The job will fail because `yarn` is not part of the medium image.
+  - Add `- run: npm i -g yarn` to the start of the job to use `yarn` in the workflow
+- Comment out any cache (`#cache: 'yarn'`) since the Cache Service is not available in the Docker container.
+- Do your changes, and run `act -j <name-of-workflow-job-you-want-to-test>` to re-run the job locally
+- Remember to uncomment any cache and remove `- run: npm i -g yarn` afterwards!
+
 # Hosting
 
 The site is hosted at https://kodeworks.github.io/kodeworks.no-poc

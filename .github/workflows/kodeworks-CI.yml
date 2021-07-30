@@ -31,9 +31,31 @@ jobs:
             allChanges:
             - '**'
 
+  tests:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [16.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'yarn'
+      - run: yarn install --frozen-lockfile
+      - run: yarn test:ci
+      - uses: actions/upload-artifact@v2 # upload test results for test-report.yml
+        if: success() || failure() # run this step even if previous step failed
+        with:
+          name: test-results
+          path: reports/jest-junit.xml
+
   build-and-export-static-pages:
-    needs: changes
-    if: ${{ needs.changes.outputs.allChanges == 'true' }}
+    needs: tests
     runs-on: ubuntu-latest
 
     strategy:
@@ -58,7 +80,7 @@ jobs:
           NEXT_PUBLIC_BASE_PATH: /kodeworks.no-poc
 
   build-storybook:
-    needs: changes
+    needs: [changes, tests]
     if: ${{ needs.changes.outputs.storybook == 'true' }}
     runs-on: ubuntu-latest
 
