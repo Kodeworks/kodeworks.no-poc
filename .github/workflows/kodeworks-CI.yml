@@ -52,7 +52,7 @@ jobs:
         if: success() || failure() # run this step even if previous step failed
         with:
           name: test-results
-          path: jest-junit.xml
+          path: reports/jest-junit.xml
 
   build-and-export-static-pages:
     needs: tests
