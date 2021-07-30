@@ -37,9 +37,9 @@ jobs:
               - '!(*notAppRelated)'
       - name: Step skip overview
         run: |
-          echo "skipping ${{ jobs.tests.name }}: ${{ steps.filter.outputs.appRelated }}"
-          echo "skipping ${{ jobs.build-and-export-static-pages.name }}: ${{ steps.filter.outputs.appRelated }}"
-          echo "skipping ${{ jobs.build-storybook.name }}: ${{ steps.filter.outputs.storybook }}"
+          echo "skipping job tests: ${{ steps.filter.outputs.appRelated }}"
+          echo "skipping job build-and-export-static-pages: ${{ steps.filter.outputs.appRelated }}"
+          echo "skipping job build-storybook: ${{ steps.filter.outputs.storybook }}"
 
   tests:
     needs: [change-detection]
