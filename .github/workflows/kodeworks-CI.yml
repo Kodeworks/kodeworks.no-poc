@@ -39,7 +39,6 @@ jobs:
               - 'components/**'
               - '!*storybook'
               - '!*notAppRelated'
-              - '**'
             allChanges:
             - '**'
 
