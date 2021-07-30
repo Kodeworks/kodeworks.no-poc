@@ -47,11 +47,11 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: 'yarn'
       - run: yarn install --frozen-lockfile
-      uses: mattallty/jest-github-action@v1
+      - uses: mattallty/jest-github-action@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          test-command: "yarn test:ci"
+          test-command: 'yarn test:ci'
           changes-only: true
 
   build-and-export-static-pages:
