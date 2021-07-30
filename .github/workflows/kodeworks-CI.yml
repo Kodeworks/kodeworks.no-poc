@@ -13,7 +13,9 @@ jobs:
     runs-on: ubuntu-latest
     # Set job outputs to values from filter step
     outputs:
+      app: ${{ steps.filter.outputs.app }}
       storybook: ${{ steps.filter.outputs.storybook }}
+      notAppRelated: ${{ steps.filter.outputs.notAppRelated }}
       allChanges: ${{ steps.filter.outputs.allChanges }}
     steps:
       # For pull requests it's not necessary to checkout the code
@@ -24,14 +26,26 @@ jobs:
             storybook: &storybook
               - '.storybook/**'
               - 'stories/**'
+              - 'components/**'
               - '**.stories.js'
               - 'package.json'
               - 'yarn.lock'
               - 'postcss.config.js'
+            notAppRelated: &notAppRelated
+              - '!.github/**'
+              - '!.vscode/**'
+              - '!README.md'
+            app:
+              - 'components/**'
+              - '!*storybook'
+              - '!*notAppRelated'
+              - '**'
             allChanges:
             - '**'
 
   tests:
+    needs: [changes]
+    if: ${{ needs.changes.outputs.app == 'true' || needs.changes.outputs.storybook == 'true' }}
     runs-on: ubuntu-latest
 
     steps:
@@ -50,7 +64,8 @@ jobs:
           path: reports/jest-junit.xml
 
   build-and-export-static-pages:
-    needs: tests
+    needs: [changes, tests]
+    if: ${{ needs.changes.outputs.app == 'true' }}
     runs-on: ubuntu-latest
 
     steps:
