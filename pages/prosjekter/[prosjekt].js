@@ -47,7 +47,7 @@ const Prosjekt = ({project}) => {
   )
 }
 
-Prosjekt.PropTypes = {
+Prosjekt.propTypes = {
   project: PropTypes.shape({
     id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
