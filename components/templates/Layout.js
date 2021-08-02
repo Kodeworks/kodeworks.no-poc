@@ -16,7 +16,7 @@ const Layout = ({backgroundOpacity = 1, children}) => {
         </noscript>
       </Head>
       <Header></Header>
-      <main className="flex-grow w-full px-2 xl:mx-auto xl:max-w-screen-xl contents sm:px-4 md:px-8 lg:px-16">
+      <main className="flex-grow w-full px-2 xl:mx-auto xl:max-w-screen-xl sm:px-4 md:px-8 lg:px-16">
         {children}
       </main>
     </div>

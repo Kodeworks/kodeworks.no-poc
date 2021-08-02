@@ -1,3 +1,5 @@
+const colors = require('tailwindcss/colors')
+
 module.exports = {
   mode: "jit",
   purge: {
@@ -102,6 +104,7 @@ module.exports = {
         'fallback': ['Arial', 'sans-serif'],
       },
       colors: {
+        gray: colors.gray,
           'kw-green': {
             50: "#ecffe5",
             100: "#e4ffdb",

@@ -12,7 +12,7 @@ const CardContainer = ({variant = Variant.MAIN_GRAY, children}) => {
   return (
     <div
       className={classNames(
-        'max-w-md px-4 py-12 mx-auto text-left sm:max-w-7xl sm:px-6 sm:py-16 md:py-20 lg:px-8 lg:py-24',
+        'p-4 mx-auto text-left sm:max-w-7xl sm:px-6 sm:py-8 md:py-12 lg:px-8 lg:py-16',
         VARIANT_MAPS[variant],
       )}
     >
