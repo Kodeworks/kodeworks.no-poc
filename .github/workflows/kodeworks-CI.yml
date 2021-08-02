@@ -27,9 +27,7 @@ jobs:
               - 'yarn.lock'
               - 'postcss.config.js'
             appRelated:
-              - '**!(.github/**)'
-              - '**!(.vscode/**)'
-              - '**!(README.md)'
+              - '!(README.md)'
       - name: Why jobs/workflows are skipped or not
         run: |
           echo "skipping job tests: ${{ steps.filter.outputs.appRelated == 'false'}}"
