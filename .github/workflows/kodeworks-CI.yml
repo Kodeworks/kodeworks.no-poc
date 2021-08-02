@@ -11,7 +11,6 @@ jobs:
     outputs:
       appRelated: ${{ steps.filter.outputs.appRelated }}
       storybook: ${{ steps.filter.outputs.storybook }}
-      notAppRelated: ${{ steps.filter.outputs.notAppRelated }}
     steps:
       # For pull requests it's not necessary to checkout the code
       - name: Run change detection
@@ -27,13 +26,10 @@ jobs:
               - 'package.json'
               - 'yarn.lock'
               - 'postcss.config.js'
-            notAppRelated: &notAppRelated
-              - '.github/**'
-              - '.vscode/**'
-              - 'README.md'
             appRelated:
-              - '!(*notAppRelated)'
-              - '**'
+              - '**!(.github/**)'
+              - '**!(.vscode/**)'
+              - '**!(README.md)'
       - name: Why jobs/workflows are skipped or not
         run: |
           echo "skipping job tests: ${{ steps.filter.outputs.appRelated == 'false'}}"
