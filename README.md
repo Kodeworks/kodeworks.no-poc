@@ -23,6 +23,10 @@
 Trigger: on all Pull Requests to the `main` branch  
 Definition: `./github/workflows/kodeworks-CI.yml`
 
+### [paths-filter](https://github.com/dorny/paths-filter)
+
+Used for change-detection, so that steps unrelated to changed files don't have to be executed.
+
 ## Continous Deployment
 
 Trigger: when code is pushed to the `main` branch, e.g. after merging in a branch  
