@@ -25,15 +25,6 @@ jobs:
               - 'package.json'
               - 'yarn.lock'
               - 'postcss.config.js'
-      - name: Why jobs/workflows are skipped or not
-        run: |
-          echo "skipping job tests: ${{ steps.filter.outputs.appRelated == 'false'}}"
-          echo "skipping job build-and-export-static-pages: ${{ steps.filter.outputs.appRelated == 'false' }}"
-          echo "skipping job build-storybook: ${{ steps.filter.outputs.storybook == 'false'}}"
-          echo ""
-          echo "skipping workflow Test Report: ${{ steps.filter.outputs.appRelated == 'false'}}"
-          echo ""
-          echo "Jobs use the output from the change detection step above to decide whether to run or not. The workflow Test Report will not run if the tests job is skipped."
 
   tests:
     runs-on: ubuntu-latest
