@@ -25,7 +25,7 @@ Definition: `./github/workflows/kodeworks-CI.yml`
 
 ### [paths-filter](https://github.com/dorny/paths-filter)
 
-Used for change-detection, so that steps unrelated to changes don't have to be executed.
+Used for change-detection, so that steps unrelated to changed files don't have to be executed.
 
 ## Continous Deployment
 
