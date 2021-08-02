@@ -20,6 +20,8 @@
 
 ## Continous Integration
 
+> 💡 Test and build app
+
 Trigger: on all Pull Requests to the `main` branch  
 Definition: `./github/workflows/kodeworks-CI.yml`
 
@@ -27,7 +29,19 @@ Definition: `./github/workflows/kodeworks-CI.yml`
 
 Used for change-detection, so that steps unrelated to changed files don't have to be executed.
 
+## Test Report
+
+> 💡 Show in Github PR if tests passed, failed or were skipped  
+> Annotate code where tests failed
+
+Trigger: `Continous Integration` job completed  
+If-Checks: `RUN_TEST_REPORT` flag in `Continous integration` workflow is set to `"true"`  
+Definition: `./github/workflows/test-report.yml`  
+Documentation: [Test Reporter Github repo](https://github.com/dorny/test-reporter)
+
 ## Continous Deployment
+
+> 💡 Build, export and deploy app
 
 Trigger: when code is pushed to the `main` branch, e.g. after merging in a branch  
 Definition: `./github/workflows/kodeworks-CD.yml`
