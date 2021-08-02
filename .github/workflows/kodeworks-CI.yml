@@ -9,7 +9,6 @@ jobs:
     runs-on: ubuntu-latest
     # Set job outputs to values from filter step
     outputs:
-      appRelated: ${{ steps.filter.outputs.appRelated }}
       storybook: ${{ steps.filter.outputs.storybook }}
     steps:
       # For pull requests it's not necessary to checkout the code
@@ -26,8 +25,6 @@ jobs:
               - 'package.json'
               - 'yarn.lock'
               - 'postcss.config.js'
-            appRelated:
-              - '**!(README.md)'
       - name: Why jobs/workflows are skipped or not
         run: |
           echo "skipping job tests: ${{ steps.filter.outputs.appRelated == 'false'}}"
@@ -39,8 +36,6 @@ jobs:
           echo "Jobs use the output from the change detection step above to decide whether to run or not. The workflow Test Report will not run if the tests job is skipped."
 
   tests:
-    needs: [change-detection]
-    if: ${{ needs.change-detection.outputs.appRelated == 'true' }}
     runs-on: ubuntu-latest
 
     steps:
@@ -63,8 +58,7 @@ jobs:
         id: random-color-generator
 
   build-and-export-static-pages:
-    needs: [change-detection, tests]
-    if: ${{ needs.change-detection.outputs.appRelated == 'true' }}
+    needs: [tests]
     runs-on: ubuntu-latest
 
     steps:
