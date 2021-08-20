@@ -5,6 +5,10 @@ test('renders page', async () => {
   render(<Home />)
 })
 
+test('failing test', async () => {
+  expect(true).toEqual(false)
+})
+
 test('h1 with SVG as title should contain screen-reader friendly title', async () => {
   const {container} = render(<Home />)
   const screenReaderTitle = screen.getByText('Kodeworks')
