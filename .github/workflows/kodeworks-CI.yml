@@ -46,7 +46,6 @@ jobs:
       - name: Set flag to run Test Report
         if: always() # run this step even if previous step failed
         run: echo '::set-output name=RUN_TEST_REPORT::true'
-        id: random-color-generator
 
   build-and-export-static-pages:
     needs: [tests]
