@@ -38,6 +38,11 @@ jobs:
           cache: 'yarn'
       - run: yarn install --frozen-lockfile
       - run: yarn test:ci
+      - uses: actions/upload-artifact@v2 # upload test results for test-report.yml
+        if: always() # run this step even if previous step failed
+        with:
+          name: test-results
+          path: reports/jest-junit.xml
 
   build-and-export-static-pages:
     needs: [tests]
