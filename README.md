@@ -31,10 +31,12 @@ Used for change-detection, so that steps unrelated to changed files don't have t
 
 ## Test Report
 
-> 💡 Test report available in `Continous Integration`-action under `Test report`-step.
-> Code in `files changed`-tab in PR is annotate with details from the test report where tests failed.
+> 💡 Summary of tests and code annotations where code failed
 
-Trigger: `Continous Integration` job completed
+- Test report available in Github under `Continous Integration`-action under `Test report`-step.
+- Code annotation related to failing tests is available in the `files changed`-tab in the Pull Request.
+
+Trigger: `Continous Integration` job completed  
 Definition: `./github/workflows/test-report.yml`  
 Documentation: [Test Reporter Github repo](https://github.com/dorny/test-reporter)
 
