@@ -49,7 +49,7 @@ jobs:
 
   tests-report:
     needs: [tests]
-    if: ${{ github.event.workflow_run.tests.outputs.RUN_TEST_REPORT == 'true'}}
+    if: always() && github.event.workflow_run.tests.outputs.RUN_TEST_REPORT == 'true'
     runs-on: ubuntu-latest
     steps:
       - run: echo "Test Report running since RUN_TEST_REPORT flag in tests job is set to true."
