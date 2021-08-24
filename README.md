@@ -31,11 +31,10 @@ Used for change-detection, so that steps unrelated to changed files don't have t
 
 ## Test Report
 
-> 💡 Show in Github PR if tests passed, failed or were skipped  
-> Annotate code where tests failed
+> 💡 Test report available in `Continous Integration`-action under `Test report`-step.
+> Code in `files changed`-tab in PR is annotate with details from the test report where tests failed.
 
-Trigger: `Continous Integration` job completed  
-If-Checks: `RUN_TEST_REPORT` flag in `Continous integration` workflow is set to `"true"`  
+Trigger: `Continous Integration` job completed
 Definition: `./github/workflows/test-report.yml`  
 Documentation: [Test Reporter Github repo](https://github.com/dorny/test-reporter)
 
