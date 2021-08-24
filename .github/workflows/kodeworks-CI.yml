@@ -39,14 +39,10 @@ jobs:
       - run: yarn install --frozen-lockfile
       - run: yarn test:ci
       - uses: actions/upload-artifact@v2 # upload test results for test-report.yml
-        if: success() || failure() # run this step even if previous step failed
+        if: always() # run this step even if previous step failed
         with:
           name: test-results
           path: reports/jest-junit.xml
-      - name: Set flag to run Test Report
-        id: test-report-flag
-        if: always() # run this step even if previous step failed
-        run: echo '::set-output name=RUN_TEST_REPORT::true'
 
   build-and-export-static-pages:
     needs: [tests]
