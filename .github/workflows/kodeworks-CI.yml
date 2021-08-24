@@ -28,8 +28,6 @@ jobs:
 
   tests:
     runs-on: ubuntu-latest
-    outputs:
-      RUN_TEST_REPORT: ${{ steps.test-report-flag.outputs.RUN_TEST_REPORT }}
 
     steps:
       - uses: actions/checkout@v2
@@ -49,19 +47,6 @@ jobs:
         id: test-report-flag
         if: always() # run this step even if previous step failed
         run: echo '::set-output name=RUN_TEST_REPORT::true'
-
-  tests-report:
-    needs: [tests]
-    if: always()
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo "Test Report running since RUN_TEST_REPORT flag in tests job is set to true."
-      - uses: dorny/test-reporter@v1
-        with:
-          artifact: test-results # artifact name
-          name: JEST Tests # Name of the check run which will be created
-          path: 'jest-junit.xml' # Path to test results (inside artifact .zip)
-          reporter: jest-junit # Format of test results
 
   build-and-export-static-pages:
     needs: [tests]
