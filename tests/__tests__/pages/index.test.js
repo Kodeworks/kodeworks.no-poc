@@ -1,6 +1,10 @@
 import {render, screen} from '@testing-library/react'
 import Home from 'pages/index'
 
+test('failing test', async () => {
+  expect(false).toBe(true)
+})
+
 test('renders page', async () => {
   render(<Home />)
 })
